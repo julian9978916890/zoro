@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BSED-MATH COURSE UNITS AND SUBJECTS</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            /* Gradient background: left is light purple, right is light blue */
+            background: linear-gradient(to right, #d1c4e9 0%, #90caf9 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .title {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            color: black;
+            text-align: center;
+            font-size: 6vw; /* Responsive, about 1/4th screen width */
+            margin-top: 2vw;
+            margin-bottom: 5vw;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2vw;
+        }
+        button {
+            width: 20vw;
+            height: 4vw;
+            font-size: 2vw;
+            background-color: #e0e0e0;
+            border: 2px solid black;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: Arial, sans-serif;
+            transition: background 0.2s;
+        }
+        button:hover {
+            background-color: #bdbdbd;
+        }
+        @media (max-width: 600px) {
+            .title {
+                font-size: 10vw;
+            }
+            button {
+                width: 100vw;
+                height: 30vw;
+                font-size: 2vw;
+            }
+        }
+    </style>
+</head>
+<body>
+<script>
+  window.onload = function() {
+    const bg = localStorage.getItem('bsed_bg');
+    const font = localStorage.getItem('bsed_font');
+    if(bg) {
+      const bgMap = {
+        "blue-purple": "linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%)",
+        "red-orange": "linear-gradient(135deg, #ff512f 0%, #f09819 100%)",
+        "yellow-green": "linear-gradient(135deg, #f9d423 0%, #a8e063 100%)",
+        "violet-red": "linear-gradient(135deg, #da22ff 0%, #ff4b2b 100%)",
+        "yellow-orange": "linear-gradient(135deg, #f7971e 0%, #ffd200 100%)",
+        "teal-pink": "linear-gradient(135deg, #1de9b6 0%, #f06292 100%)",
+        "green-blue": "linear-gradient(135deg, #43ea5e 0%, #2196f3 100%)",
+        "orange-purple": "linear-gradient(135deg, #ff9800 0%, #8e24aa 100%)",
+        "pink-yellow": "linear-gradient(135deg, #ec407a 0%, #fff176 100%)",
+        "cyan-magenta": "linear-gradient(135deg, #00bcd4 0%, #e040fb 100%)",
+        "sunset": "linear-gradient(135deg, #ff9800 0%, #e040fb 50%, #8e24aa 100%)",
+        "ocean": "linear-gradient(135deg, #2196f3 0%, #1de9b6 50%, #43ea5e 100%)",
+        "sunrise": "linear-gradient(135deg, #fff176 0%, #ff9800 50%, #ec407a 100%)",
+        "forest": "linear-gradient(135deg, #43ea5e 0%, #cddc39 50%, #fff176 100%)",
+        "lavender": "linear-gradient(135deg, #8e24aa 0%, #e040fb 50%, #ec407a 100%)",
+        "fire": "linear-gradient(135deg, #e53935 0%, #ff9800 50%, #fff176 100%)",
+        "ice": "linear-gradient(135deg, #00bcd4 0%, #2196f3 50%, #fff 100%)",
+        "earth": "linear-gradient(135deg, #8d6e63 0%, #43ea5e 50%, #2196f3 100%)",
+        "candy": "linear-gradient(135deg, #ec407a 0%, #fff176 50%, #2196f3 100%)",
+        "mint": "linear-gradient(135deg, #43ea5e 0%, #1de9b6 50%, #fff 100%)",
+        "rainbow": "linear-gradient(135deg, #e53935 0%, #fff176 33%, #43ea5e 66%, #2196f3 100%)",
+        "galaxy": "linear-gradient(135deg, #8e24aa 0%, #2196f3 33%, #1de9b6 66%, #000 100%)",
+        "citrus": "linear-gradient(135deg, #fff176 0%, #ff9800 33%, #cddc39 66%, #43ea5e 100%)",
+        "blossom": "linear-gradient(135deg, #ec407a 0%, #8e24aa 33%, #fff 66%, #fff176 100%)",
+        "autumn": "linear-gradient(135deg, #e53935 0%, #ff9800 33%, #fff176 66%, #8d6e63 100%)",
+        "oceanwave": "linear-gradient(135deg, #2196f3 0%, #1de9b6 33%, #fff 66%, #43ea5e 100%)",
+        "sunrise4": "linear-gradient(135deg, #fff176 0%, #ff9800 33%, #ec407a 66%, #8e24aa 100%)",
+        "icecream": "linear-gradient(135deg, #ec407a 0%, #fff176 33%, #fff 66%, #8d6e63 100%)",
+        "forest4": "linear-gradient(135deg, #43ea5e 0%, #cddc39 33%, #fff176 66%, #8d6e63 100%)",
+        "pastel": "linear-gradient(135deg, #ec407a 0%, #2196f3 33%, #fff176 66%, #43ea5e 100%)"
+      };
+      document.body.style.background = bgMap[bg] || bgMap["blue-purple"];
+    }
+    if(font) {
+      document.body.style.fontFamily = font;
+      document.querySelector('.title').style.setProperty('font-family', font, 'important');
+      document.querySelectorAll('button').forEach(btn => btn.style.setProperty('font-family', font, 'important'));
+    }
+  };
+</script>
+    <div class="title">BSED-MATH COURSE UNITS AND SUBJECTS</div>
+    <div class="button-container">
+        <button>SUBJECTS</button>
+        <button>PRACTICE QUIZ</button>
+        <button>PRACTICE EXAM</button>
+         <button onclick="window.location.href='settings.html'">SETTINGS</button>
+    <button onclick="window.location.href='https://www.google.com'">EXIT</button>

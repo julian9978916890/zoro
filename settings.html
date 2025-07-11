@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Settings</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', 'Comic Sans', sans-serif;
+      background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+      margin: 0;
+      padding: 20px;
+    }
+    .section {
+      margin-bottom: 30px;
+    }
+    .option-group {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .color-option {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .color-radio {
+      appearance: none;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 2px solid #ccc;
+      outline: none;
+      cursor: pointer;
+      position: relative;
+      margin: 0;
+    }
+    .color-radio:checked::after {
+      content: '';
+      display: block;
+      width: 10px;
+      height: 10px;
+      background: #222;
+      border-radius: 50%;
+      position: absolute;
+      top: 8px;
+      left: 8px;
+    }
+    .blue-purple { background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%); }
+    .red-orange { background: linear-gradient(135deg, #ff512f 0%, #f09819 100%); }
+    .yellow-green { background: linear-gradient(135deg, #f9d423 0%, #a8e063 100%); }
+    .violet-red { background: linear-gradient(135deg, #da22ff 0%, #ff4b2b 100%); }
+    .yellow-orange { background: linear-gradient(135deg, #f7971e 0%, #ffd200 100%); }
+    .blue-purple { background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%); }
+    .red-orange { background: linear-gradient(135deg, #ff512f 0%, #f09819 100%); }
+    .yellow-green { background: linear-gradient(135deg, #f9d423 0%, #a8e063 100%); }
+    .violet-red { background: linear-gradient(135deg, #da22ff 0%, #ff4b2b 100%); }
+    .yellow-orange { background: linear-gradient(135deg, #f7971e 0%, #ffd200 100%); }
+    .teal-pink { background: linear-gradient(135deg, #1de9b6 0%, #f06292 100%); }
+    .green-blue { background: linear-gradient(135deg, #43ea5e 0%, #2196f3 100%); }
+    .orange-purple { background: linear-gradient(135deg, #ff9800 0%, #8e24aa 100%); }
+    .pink-yellow { background: linear-gradient(135deg, #ec407a 0%, #fff176 100%); }
+    .cyan-magenta { background: linear-gradient(135deg, #00bcd4 0%, #e040fb 100%); }
+    .sunset { background: linear-gradient(135deg, #ff9800 0%, #e040fb 50%, #8e24aa 100%); }
+    .ocean { background: linear-gradient(135deg, #2196f3 0%, #1de9b6 50%, #43ea5e 100%); }
+    .sunrise { background: linear-gradient(135deg, #fff176 0%, #ff9800 50%, #ec407a 100%); }
+    .forest { background: linear-gradient(135deg, #43ea5e 0%, #cddc39 50%, #fff176 100%); }
+    .lavender { background: linear-gradient(135deg, #8e24aa 0%, #e040fb 50%, #ec407a 100%); }
+    .fire { background: linear-gradient(135deg, #e53935 0%, #ff9800 50%, #fff176 100%); }
+    .ice { background: linear-gradient(135deg, #00bcd4 0%, #2196f3 50%, #fff 100%); }
+    .earth { background: linear-gradient(135deg, #8d6e63 0%, #43ea5e 50%, #2196f3 100%); }
+    .candy { background: linear-gradient(135deg, #ec407a 0%, #fff176 50%, #2196f3 100%); }
+    .mint { background: linear-gradient(135deg, #43ea5e 0%, #1de9b6 50%, #fff 100%); }
+    .rainbow { background: linear-gradient(135deg, #e53935 0%, #fff176 33%, #43ea5e 66%, #2196f3 100%); }
+    .galaxy { background: linear-gradient(135deg, #8e24aa 0%, #2196f3 33%, #1de9b6 66%, #000 100%); }
+    .citrus { background: linear-gradient(135deg, #fff176 0%, #ff9800 33%, #cddc39 66%, #43ea5e 100%); }
+    .blossom { background: linear-gradient(135deg, #ec407a 0%, #8e24aa 33%, #fff 66%, #fff176 100%); }
+    .autumn { background: linear-gradient(135deg, #e53935 0%, #ff9800 33%, #fff176 66%, #8d6e63 100%); }
+    .oceanwave { background: linear-gradient(135deg, #2196f3 0%, #1de9b6 33%, #fff 66%, #43ea5e 100%); }
+    .sunrise4 { background: linear-gradient(135deg, #fff176 0%, #ff9800 33%, #ec407a 66%, #8e24aa 100%); }
+    .icecream { background: linear-gradient(135deg, #ec407a 0%, #fff176 33%, #fff 66%, #8d6e63 100%); }
+    .forest4 { background: linear-gradient(135deg, #43ea5e 0%, #cddc39 33%, #fff176 66%, #8d6e63 100%); }
+    .pastel { background: linear-gradient(135deg, #ec407a 0%, #2196f3 33%, #fff176 66%, #43ea5e 100%); }
+    .font-option {
+      margin-bottom: 8px;
+    }
+    .font-radio {
+      margin-right: 8px;
+    }
+    .font-label {
+      font-size: 1.1em;
+    }
+  </style>
+</head>
+<body>
+  <h2>Settings</h2>
+  <div class="section">
+    <h3>Background</h3>
+    <div class="option-group">
+  <!-- 10 Two-Color Gradients -->
+  <label class="color-option">
+    <input type="radio" name="background" class="color-radio blue-purple" checked>
+    Blue-Purple
+  </label>
+  <label class="color-option">
+    <input type="radio" name="background" class="color-radio red-orange">
+    Red-Orange
+  </label>
+  <label class="color-option">
+    <input type="radio" name="background" class="color-radio yellow-green">
+    Yellow-Green
+  </label>
+  <label class="color-option">
+    <input type="radio" name="background" class="color-radio violet-red">
+    Violet-Red
+  </label>
+  <label class="color-option">
+    <input type="radio" name="background" class="color-radio yellow-orange">
+    Yellow-Orange
+  </label>
+  <label class="color-option">
+    <input type="radio" name="background" class="color-radio teal-pink">
+    Teal-Pink
+  </label>
+  <label class="color-option">
+    <input type="radio" name="background" class="color-radio green-blue">
+    Green-Blue
+  </label>
+  <label class="color-option">
+    <input type="radio" name="background" class="color-radio orange-purple">
+    Orange-Purple
+  </label>
+  <label class="color-option">
+    <input type="radio" name="background" class="color-radio pink-yellow">
+    Pink-Yellow
+  </label>
+  <label class="color-option">
+    <input type="radio" name="background" class="color-radio cyan-magenta">
+    Cyan-Magenta
+  </label>
+
+  <!-- 10 Three-Color Gradients -->
+  <label class="color-option">
+    <input type="radio" name="background" class="color-radio sunset">
+    Sunset (Orange-Red-Purple)
+  </label>
+  <label class="color-option">
+    <input type="radio" name="background" class="color-radio ocean">
+    Ocean (Blue-Teal-Green)
+  </label>
+  <label class="color-option">
+    <input type="radio" name="background" class="color-radio sunrise">
+    Sunrise (Yellow-Orange-Pink)
+  </label>
+  <label class="color-option">
+    <input type="radio" name="background" class="color-radio forest">
+    Forest (Green-Lime-Yellow)
+  </label>
+  <label class="color-option">
+    <input type="radio" name="background" class="color-radio lavender">
+    Lavender (Purple-Violet-Pink)
+  </label>
+  <label class="color-option">
+    <input type="radio" name="background" class="color-radio fire">
+    Fire (Red-Orange-Yellow)
+  </label>
+  <label class="color-option">
+    <input type="radio" name="background" class="color-radio ice">
+    Ice (Cyan-Blue-White)
+  </label>
+  <label class="color-option">
+    <input type="radio" name="background" class="color-radio earth">
+    Earth (Brown-Green-Blue)
+  </label>
+  <label class="color-option">
+    <input type="radio" name="background" class="color-radio candy">
+    Candy (Pink-Yellow-Blue)
+  </label>
+  <label class="color-option">
+    <input type="radio" name="background" class="color-radio mint">
+    Mint (Green-Teal-White)
+  </label>
+
+  <!-- 10 Four-Color Gradients -->
+  <label class="color-option">
+    <input type="radio" name="background" class="color-radio rainbow">
+    Rainbow (Red-Yellow-Green-Blue)
+  </label>
+  <label class="color-option">
+    <input type="radio" name="background" class="color-radio galaxy">
+    Galaxy (Purple-Blue-Teal-Black)
+  </label>
+  <label class="color-option">
+    <input type="radio" name="background" class="color-radio citrus">
+    Citrus (Yellow-Orange-Lime-Green)
+  </label>
+  <label class="color-option">
+    <input type="radio" name="background" class="color-radio blossom">
+    Blossom (Pink-Purple-White-Yellow)
+  </label>
+  <label class="color-option">
+    <input type="radio" name="background" class="color-radio autumn">
+    Autumn (Red-Orange-Yellow-Brown)
+  </label>
+  <label class="color-option">
+    <input type="radio" name="background" class="color-radio oceanwave">
+    Ocean Wave (Blue-Teal-White-Green)
+  </label>
+  <label class="color-option">
+    <input type="radio" name="background" class="color-radio sunrise4">
+    Sunrise 4 (Yellow-Orange-Pink-Purple)
+  </label>
+  <label class="color-option">
+    <input type="radio" name="background" class="color-radio icecream">
+    Ice Cream (Pink-Yellow-White-Brown)
+  </label>
+  <label class="color-option">
+    <input type="radio" name="background" class="color-radio forest4">
+    Forest 4 (Green-Lime-Yellow-Brown)
+  </label>
+  <label class="color-option">
+    <input type="radio" name="background" class="color-radio pastel">
+    Pastel (Pink-Blue-Yellow-Green)
+  </label>
+</div>
+  </div>
+  <div class="section">
+    <h3>Font</h3>
+    <div>
+      <label class="font-option">
+        <input type="radio" name="font" class="font-radio" checked>
+        <span class="font-label" style="font-family: 'Comic Sans MS', 'Comic Sans', sans-serif;">Comic Sans</span>
+      </label>
+      <label class="font-option">
+        <input type="radio" name="font" class="font-radio">
+        <span class="font-label" style="font-family: sans-serif;">Sans Serif</span>
+      </label>
+      <label class="font-option">
+        <input type="radio" name="font" class="font-radio">
+        <span class="font-label" style="font-family: Arial, sans-serif;">Arial</span>
+      </label>
+      <label class="font-option">
+        <input type="radio" name="font" class="font-radio">
+        <span class="font-label" style="font-family: 'Times New Roman', serif;">Times New Roman</span>
+      </label>
+      <label class="font-option">
+        <input type="radio" name="font" class="font-radio">
+        <span class="font-label" style="font-family: 'Courier New', monospace;">Courier New</span>
+      </label>
+      <label class="font-option">
+        <input type="radio" name="font" class="font-radio">
+        <span class="font-label" style="font-family: Verdana, sans-serif;">Verdana</span>
+      </label>
+      <label class="font-option">
+        <input type="radio" name="font" class="font-radio">
+        <span class="font-label" style="font-family: Georgia, serif;">Georgia</span>
+      </label>
+      <label class="font-option">
+        <input type="radio" name="font" class="font-radio">
+        <span class="font-label" style="font-family: Tahoma, sans-serif;">Tahoma</span>
+      </label>
+      <label class="font-option">
+        <input type="radio" name="font" class="font-radio">
+        <span class="font-label" style="font-family: 'Trebuchet MS', sans-serif;">Trebuchet MS</span>
+      </label>
+      <label class="font-option">
+        <input type="radio" name="font" class="font-radio">
+        <span class="font-label" style="font-family: 'Lucida Console', monospace;">Lucida Console</span>
+      </label>
+      <label class="font-option">
+        <input type="radio" name="font" class="font-radio">
+        <span class="font-label" style="font-family: 'Palatino Linotype', serif;">Palatino Linotype</span>
+      </label>
+      <label class="font-option">
+        <input type="radio" name="font" class="font-radio">
+        <span class="font-label" style="font-family: 'Garamond', serif;">Garamond</span>
+      </label>
+      <label class="font-option">
+        <input type="radio" name="font" class="font-radio">
+        <span class="font-label" style="font-family: 'Bookman', serif;">Bookman</span>
+      </label>
+      <label class="font-option">
+        <input type="radio" name="font" class="font-radio">
+        <span class="font-label" style="font-family: 'Arial Black', sans-serif;">Arial Black</span>
+      </label>
+      <label class="font-option">
+        <input type="radio" name="font" class="font-radio">
+        <span class="font-label" style="font-family: 'Impact', sans-serif;">Impact</span>
+      </label>
+      <label class="font-option">
+        <input type="radio" name="font" class="font-radio">
+        <span class="font-label" style="font-family: 'Century Gothic', sans-serif;">Century Gothic</span>
+      </label>
+      <label class="font-option">
+        <input type="radio" name="font" class="font-radio">
+        <span class="font-label" style="font-family: 'Franklin Gothic Medium', sans-serif;">Franklin Gothic Medium</span>
+      </label>
+      <label class="font-option">
+        <input type="radio" name="font" class="font-radio">
+        <span class="font-label" style="font-family: 'Candara', sans-serif;">Candara</span>
+      </label>
+      <label class="font-option">
+        <input type="radio" name="font" class="font-radio">
+        <span class="font-label" style="font-family: 'Perpetua', serif;">Perpetua</span>
+      </label>
+      <label class="font-option">
+        <input type="radio" name="font" class="font-radio">
+        <span class="font-label" style="font-family: 'Rockwell', serif;">Rockwell</span>
+      </label>
+      <label class="font-option">
+        <input type="radio" name="font" class="font-radio">
+        <span class="font-label" style="font-family: 'Corbel', sans-serif;">Corbel</span>
+      </label>
+      <label class="font-option">
+        <input type="radio" name="font" class="font-radio">
+        <span class="font-label" style="font-family: 'Segoe UI', sans-serif;">Segoe UI</span>
+      </label>
+      <label class="font-option">
+        <input type="radio" name="font" class="font-radio">
+        <span class="font-label" style="font-family: 'Calibri', sans-serif;">Calibri</span>
+      </label>
+      <label class="font-option">
+        <input type="radio" name="font" class="font-radio">
+        <span class="font-label" style="font-family: 'Optima', sans-serif;">Optima</span>
+      </label>
+      <label class="font-option">
+        <input type="radio" name="font" class="font-radio">
+        <span class="font-label" style="font-family: 'Futura', sans-serif;">Futura</span>
+      </label>
+      <label class="font-option">
+        <input type="radio" name="font" class="font-radio">
+        <span class="font-label" style="font-family: 'Baskerville', serif;">Baskerville</span>
+      </label>
+      <label class="font-option">
+        <input type="radio" name="font" class="font-radio">
+        <span class="font-label" style="font-family: 'Didot', serif;">Didot</span>
+      </label>
+      <label class="font-option">
+        <input type="radio" name="font" class="font-radio">
+        <span class="font-label" style="font-family: 'Gill Sans', sans-serif;">Gill Sans</span>
+      </label>
+    </div>
+  </div>
+  <button id="saveBtn" style="margin-top:30px;padding:10px 24px;font-size:1.1em;">Save</button>
+  <script>
+    document.getElementById('saveBtn').onclick = function() {
+      // Get selected background
+      const bg = document.querySelector('input[name="background"]:checked').classList[1];
+      // Get selected font
+      const fontLabel = document.querySelector('input[name="font"]:checked').nextElementSibling;
+      const font = fontLabel.style.fontFamily;
+      // Save to localStorage
+      localStorage.setItem('bsed_bg', bg);
+      localStorage.setItem('bsed_font', font);
+      // Redirect to main page
+      window.location.href = "BSED WEB PAGE.html";
+    };
+  </script>
+</body>
+</html>
